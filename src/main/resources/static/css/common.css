@@ -1,0 +1,23 @@
+body, html {
+    height: 100%;
+}
+
+.header {
+    font-size: 26px;
+    height: 130px;
+    margin-right: 80px;
+    margin-left: 80px;
+    text-align: center;
+    line-height: 80px;
+}
+
+.content {
+    height:60%;
+    margin-right: 80px;
+    margin-left: 80px;
+}
+
+.footer {
+    background-color: yellow;
+    height: 20%
+}
