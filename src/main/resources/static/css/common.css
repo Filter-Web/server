@@ -17,6 +17,11 @@ body, html {
     margin-left: 80px;
 }
 
+#cameraview {
+    position: absolute;
+    width: 0;
+    height: 0; }
+
 .footer {
     background-color: yellow;
     height: 20%

@@ -8,33 +8,18 @@
     <title>AI Filter</title>
 
     <link th:href="@{/css/common.css}" rel="stylesheet" />
-<!--    <script type="text/javascript" th:src="@{/js/index.js}"></script>-->
+    <script type="text/javascript" th:src="@{/js/index.js}"></script>
 </th:block>
 <body>
     <th:block layout:fragment="header" th:replace="fragments/header :: header"></th:block>
 
     <div layout:fragment="content" class="content">
-        <video id="cameraview" width="800" height="500" autoplay="true"></video>
+        <video id="cameraview" width="640" height="480" autoplay="true"></video>
+        <canvas id="canvas" width="640" height="480">이 브라우저는 캔버스를 지원하지 않습니다.</canvas>
+        <canvas id="canvas2" width="640" height="480">이 브라우저는 캔버스를 지원하지 않습니다.</canvas>
         <button type="button" id="webcamBtn">캡쳐하기</button>
-        <canvas id="canvas" width="800" height="500"></canvas>
     </div>
 
     <th:block layout:fragment="footer"></th:block>
-
-<script>
-    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-            var video = document.getElementById('cameraview');
-            video.srcObject = stream;
-            video.play();
-        });
-    }
-    var canvas = document.getElementById('canvas');
-    var context = canvas.getContext('2d');
-    var video = document.getElementById('cameraview');
-    document.getElementById("webcamBtn").addEventListener("click",function() {
-        context.drawImage(video,0,0,800,600);
-    });
-</script>
 </body>
 </html>
