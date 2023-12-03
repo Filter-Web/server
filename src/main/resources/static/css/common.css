@@ -15,15 +15,76 @@ body, html {
     height:60%;
     margin-right: 80px;
     margin-left: 80px;
+    text-align:center;
+
 }
 
 #webcamVideo {
     position: absolute;
     width: 0;
-    height: 0; }
+    height: 0;
+}
 
-#subCanvas {
+#canvas {
+    height: 480px;
+    width: 640px;
+    display:inline-block;
+    vertical-align:middle;
+}
 
+#selectBar {
+    font-weight: bold;
+    width: 300px;
+    height: 480px;
+    background-color: rgb(233, 233, 233);
+    border-radius: 20px;
+    display: inline-block;
+    margin-left: 20px;
+    padding: 20px 10px 15px 10px;
+    display:inline-block;
+    vertical-align:middle;
+}
+
+.btnContainer {
+    height: 120px;
+    padding-top: 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    font-size: 14px;
+    font-weight: bold;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+#startWebcamBtn {
+    background-color: floralwhite;
+    border-color: red;
+    border-width: 5px;
+}
+
+#captureBtn {
+    background-color: floralwhite;
+    border-color: cornflowerblue;
+    border-width: 5px;
+    margin-left: 20px;
+}
+
+#stopWebcamBtn {
+    background-color: floralwhite;
+    border-color: black;
+    border-width: 5px;
+    border-radius: 20%;
+}
+
+#folderBtn {
+    border-color: transparent;
+    background-color: transparent;
+    margin-left: 20px;
 }
 
 .footer {

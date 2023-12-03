@@ -40,7 +40,7 @@ const captureFrameAndSend = async () => {
     const data = new Uint8Array(imageData.data);
 
     // 웹캠 영상 데이터를 Flask로 전송
-    sendWebcamStream(data);
+    // sendWebcamStream(data);
 
     // 반복 호출
     requestAnimationFrame(captureFrameAndSend);
