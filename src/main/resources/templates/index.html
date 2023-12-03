@@ -14,10 +14,11 @@
     <th:block layout:fragment="header" th:replace="fragments/header :: header"></th:block>
 
     <div layout:fragment="content" class="content">
-        <video id="cameraview" width="640" height="480" autoplay="true"></video>
+        <video id="webcamVideo" width="640" height="480" autoplay="true"></video>
         <canvas id="canvas" width="640" height="480">이 브라우저는 캔버스를 지원하지 않습니다.</canvas>
-        <canvas id="canvas2" width="640" height="480">이 브라우저는 캔버스를 지원하지 않습니다.</canvas>
-        <button type="button" id="webcamBtn">캡쳐하기</button>
+        <button type="button" id="startWebcamBtn" onclick="startWebcamStream()">스트리밍 시작하기</button>
+        <button type="button" id="stopWebcamBtn" style="display: none" onclick="stopWebcam()">스트리밍 중단하기</button>
+        <button type="button" id="captureBtn">캡쳐하기</button>
     </div>
 
     <th:block layout:fragment="footer"></th:block>

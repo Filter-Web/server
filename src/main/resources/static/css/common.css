@@ -17,10 +17,14 @@ body, html {
     margin-left: 80px;
 }
 
-#cameraview {
+#webcamVideo {
     position: absolute;
     width: 0;
     height: 0; }
+
+#subCanvas {
+
+}
 
 .footer {
     background-color: yellow;
