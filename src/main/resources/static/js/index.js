@@ -92,7 +92,6 @@ const sendWebcamStream = async (webcamData) => {
     }
 };
 
-
 const stopWebcam = async () => {
     const video = document.getElementById('webcamVideo');
     const canvas = document.getElementById('canvas');
