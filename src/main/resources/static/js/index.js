@@ -97,6 +97,8 @@ const stopWebcam = async () => {
     const video = document.getElementById('webcamVideo');
     const canvas = document.getElementById('canvas');
     const context = canvas.getContext('2d');
+    const videoCanvas = document.getElementById('videoCanvas');
+    const videoContext = videoCanvas.getContext('2d');
 
     const stream = video.srcObject;
     const tracks = stream.getTracks();
@@ -105,11 +107,12 @@ const stopWebcam = async () => {
     video.srcObject = null;
 
     context.clearRect(0, 0, canvas.width, canvas.height);
+    videoContext.clearRect(0, 0, videoCanvas.width, videoCanvas.height);
 
-    // 스트리밍 시작 버튼 숨기기
+    // 스트리밍 시작 버튼 보이기
     toggleBtn(document.getElementById('startWebcamBtn'));
 
-    // 스트리밍 중단 버튼 보이기
+    // 스트리밍 중단 버튼 숨기기
     toggleBtn(document.getElementById('stopWebcamBtn'));
 };
 
@@ -121,3 +124,28 @@ function toggleBtn(btn) {
         btn.style.display = 'inline';
     }
 };
+
+// 메인 페이지 관련 function
+
+async function fetchImages() {
+    const selectBar = document.getElementById('selectBar');
+
+    try {
+        const response = await fetch('/filterImage/image');
+        const images = await response.json();
+
+        images.forEach(image => {
+            const imgElement = document.createElement('img');
+            imgElement.src = `/images/filter/${image}`;
+            imgElement.alt = image;
+            imgElement.classList.add('thumbnail');
+
+            selectBar.appendChild(imgElement);
+        });
+    } catch (error) {
+        console.error('Error fetching images:', error);
+    }
+}
+
+// 페이지 로드 시 이미지 로딩
+window.onload = fetchImages;

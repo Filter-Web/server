@@ -17,7 +17,9 @@
         <video id="webcamVideo" width="640" height="480" autoplay="true"></video>
         <canvas id="canvas" width="640" height="480">이 브라우저는 캔버스를 지원하지 않습니다.</canvas>
 
-        <div id="selectBar">원하는 필터를 클릭해 보세요!</div>
+        <div id="selectBar" style="overflow:scroll;">
+            <h4>원하는 필터를 클릭해 보세요!</h4>
+        </div>
         <div class="btnContainer">
             <button type="button" class="btn" id="startWebcamBtn" onclick="startWebcamStream()">스트리밍<br/>시작하기</button>
             <button type="button" class="btn" id="stopWebcamBtn" style="display: none" onclick="stopWebcam()">스트리밍<br/>중단하기</button>

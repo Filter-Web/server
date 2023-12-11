@@ -40,9 +40,37 @@ body, html {
     border-radius: 20px;
     display: inline-block;
     margin-left: 20px;
-    padding: 20px 10px 15px 10px;
+    padding: 10px 10px 15px 10px;
     display:inline-block;
     vertical-align:middle;
+}
+
+/* custom scrollBar */
+#selectBar::-webkit-scrollbar {
+    width: 6px;
+}
+
+#selectBar::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+#selectBar::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: gray;
+}
+
+#selectBar::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+}
+
+#selectBar img {
+    width: 120px;
+    height: 120px;
+    background-color: whitesmoke;
+    border: 2px solid rgb(172, 139, 201);
+    border-radius: 10%;
+    margin-right: 5px;
 }
 
 .btnContainer {
