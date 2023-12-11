@@ -40,7 +40,7 @@ const captureFrameAndSend = async () => {
     const data = new Uint8Array(imageData.data);
 
     // 웹캠 영상 데이터를 Flask로 전송
-    // sendWebcamStream(data);
+    sendWebcamStream(data);
 
     // 반복 호출
     requestAnimationFrame(captureFrameAndSend);
@@ -57,6 +57,32 @@ const sendWebcamStream = async (webcamData) => {
             },
             body: webcamData,
         });
+        // const streamingVideo = document.getElementById('streamingVideo');
+        // const reader = response.body.getReader();
+        // let chunks = [];
+        const canvas = document.getElementById('videoCanvas');
+        const video = document.getElementById('webcamVideo');
+        canvas.width = video.width;
+        canvas.height = video.height;
+        const context = canvas.getContext('2d');
+
+        const imgArrayBuffer = await response.arrayBuffer();
+        const imgUint8Array = new Uint8Array(imgArrayBuffer);
+        const imgBlob = new Blob([imgUint8Array], { type: 'image/jpeg' });
+
+        const blobUrl = URL.createObjectURL(imgBlob);
+
+        // Canvas에 이미지 그리기
+        const img = new Image();
+        img.onload = function() {
+            function drawImage() {
+                context.drawImage(img, 0, 0);
+                requestAnimationFrame(drawImage);
+            }
+            // 초기 호출
+            drawImage();
+        };
+        img.src = blobUrl;
 
         if (!response.ok) {
             console.error('Error sending webcam stream:', response.statusText);
